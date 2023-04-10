@@ -29,9 +29,7 @@ fs.readdirSync(__dirname + "/lib/database/").forEach((plugin) => {
   }
 });
 async function Xasena() {
-  const { state, saveCreds } = await useMultiFileAuthState(
-    __dirname + "/session"
-  );
+  const { state, saveState } = useSingleFileAuthState(`./session.json`)//😂😂😂WTF BROH
   console.log("Syncing Database");
   await config.DATABASE.sync();
   let conn = makeWASocket({
@@ -54,7 +52,7 @@ async function Xasena() {
     store.writeToFile("./database/store.json");
   }, 30 * 1000);
 
-  conn.ev.on("creds.update", saveCreds);
+  conn.ev.on("creds.update", saveState);//අප්ඩේට් කරමුත..
   conn.ev.on("contacts.update", (update) => {
     for (let contact of update) {
       let id = decodeJid(contact.id);
