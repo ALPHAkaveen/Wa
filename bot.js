@@ -2,7 +2,7 @@ const {
   default: makeWASocket,
   Browsers,
   makeInMemoryStore,
-  useMultiFileAuthState,
+  useSingleFileAuthState,
 } = require("@adiwajshing/baileys");
 const fs = require("fs");
 const { serialize } = require("./lib/serialize");
