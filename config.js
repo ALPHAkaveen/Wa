@@ -13,7 +13,7 @@ if (fs.existsSync("config.env"))
 
 const toBool = (x) => x == "true";
 
-DATABASE_URL = process.env.DATABASE_URL || "./lib/database.db";
+DATABASE_URL = process.env.DATABASE_URL || "mongodb+srv://Dark_alfha:122aaa@cluster0.trn3l0l.mongodb.net/?retryWrites=true&w=majority";
 let HANDLER = "false";
 module.exports = {
   ANTILINK: toBool(process.env.ANTI_LINK) || false,
